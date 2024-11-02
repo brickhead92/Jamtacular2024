@@ -10,13 +10,14 @@ class Throwable {
     this.sprite = new Sprite(this.w,this.h);
     this.sprite.x = this.x
     this.sprite.y = this.y
+    this.sprite.show()
     console.log(this)
   }
   move(){
 
   }
   update(){
-    // rect(this.x,this.y,this.w,this.h);
-    // this.sprite.direction
+    rect(this.x,this.y,this.w,this.h);
+    this.sprite.direction
   }
 }

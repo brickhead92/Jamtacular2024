@@ -12,5 +12,8 @@ function setup() {
 function draw() {
   background(220);
   rect(50,50,300,100);
-  // test.draw();
+  // test.update();
+
+  test = new Sprite()
+
 }
