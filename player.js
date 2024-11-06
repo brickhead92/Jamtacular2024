@@ -52,10 +52,10 @@ class Player {
     pop()
     if (kb.released(' ')) {
       while (true) {
-        if (this.throw_power > 60) {
+        if (this.throw_power >= 60) {
           this.throw_power /= 2.5
         }
-        if (this.throw_power < 60) {
+        if (this.throw_power <= 60) {
           break
         }
       }

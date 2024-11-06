@@ -39,20 +39,29 @@ class Throwables {
   }
   throw(x,y, angle, power, overlaps){
     let throwable = new this.group.Sprite()
+    throwable.overlaps(this.group)
     throwable.overlaps(overlaps)
     throwable.diameter = 10
     throwable.x = x
     throwable.y = y
     throwable.direction = angle
     throwable.rotation = angle
+    throwable.type = "egg"
     throwable.speed = 10
     throwable.life = 110 - power
   }
-  update(){
-    for (const throwable in this.group) {
-      if (throwable.life == 0) {
-        if (this.overlaps(building.group)) {
+  hit() {
+
+  }
+  miss() {
+
+  }
+  update(player, building){
+    for (let i = 0; i < this.group.length; i++) {
+      if (this.group[i].life == 1) {
+        if (this.group[i].overlapping(building)) {
           player.score += 100
+          console.log(player.score)
         }
       }
     }

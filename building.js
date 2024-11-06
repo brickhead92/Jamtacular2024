@@ -8,7 +8,7 @@ class Building {
     this.group.overlaps(this.group)
     this.group.static = true
     new this.group.Sprite(this.x,this.y,this.w,this.h)
-    new this.group.Sprite(this.x,this.y,this.w*0.1,this.h*0.1)
+    new this.group.Sprite(this.x,this.y,this.w*0.5,this.h*0.5)
   }
 
 }
