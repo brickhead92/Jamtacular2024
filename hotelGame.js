@@ -11,7 +11,7 @@
 
 "use strict";
 
-let backgroundColour = 125;
+let backgroundColour = 'grey';
 let hotelName = 'CHARMING MINDS HOTEL - hotelGame';
 let width = 900;
 let height = 900;
@@ -74,30 +74,14 @@ class room {
         this.type = newType;
     }
 
-
-    // starting upgrade costs
-    //upgradeCost(type){
-    //    const costs = {
-    //        'empty' : 0,
-    //        'single' : 20,
-    //        'double' : 30,
-    //        'family' : 40,
-    //        'restaurant' : 40,
-    //        'cauldron' : 30,
-    //    };
-
-    //    return costs [type];
-    //}
-
 }
 
 let rooms = [];
 let selectedRoom = null;
 let showRoomSelect = false;
-let roomSelectText = "Enter a room type number: ";
+let roomSelectText = "Input room type number and hit enter to purchase:";
 let inputNumber = '';
-let roomChoices = ['1. Empty', '2. Single', '3. Double', '4. Family', '5. Restaurant', '6. Cauldron'];
-
+let roomChoices = ['Empty', 'Single', 'Double', 'Family', 'Restaurant', 'Cauldron'];
 
 function preload() {
     // assets needed 
@@ -150,7 +134,7 @@ function draw() {
     }
 
     if (buildMode) {
-        backgroundColour = 'yellow';
+        backgroundColour = 'gold';
         hotelName = 'BUILDMODE - Click on a room to upgrade its room type';
         buildMenu();
     }
@@ -174,6 +158,8 @@ function draw() {
         displayCountdown(timeLeft);
     }
 }
+
+
 
 ///// MOUSE CLICKS /////
 function mousePressed() {
@@ -206,6 +192,8 @@ function mousePressed() {
     }
 }
 
+
+
 ///// HOTEL TIMES /////
 function updateTime() {
     let currentTimeMillis = millis(); 
@@ -222,7 +210,6 @@ function updateTime() {
         }
     }
 }
-
 
 function drawTimes() {
     let hours = Math.floor(currentTime / 60);
@@ -257,36 +244,7 @@ function drawTimes() {
     text(dayCounterText, x, y + 60);
 }
 
-function drawStatusBars(){
-    textAlign(LEFT);    
-    text("Witch Happiness: "+ happy, 30, 40);
-    text("Star Rating: " + rating, 30, 75);
-    text("Gold: " + gold, 30, 110);
-}
 
-
-//// TRIGGER RATING EVENT /////
-function triggerEvent() {
-    pauseGame = true;  
-    showHotel = false;  
-    eventStartTime = millis();  
-    fill(255);
-    textSize(30);
-    textAlign(CENTER, CENTER);
-    text('RATING GAME TRIGGERED CLICK TO START', width / 2, height / 2);
-}
-
-function endEvent() {
-    pauseGame = false;  
-    showHotel = true;  
-    eventStartTime = -1; 
-}
-
-function displayCountdown(timeLeft) {
-    textSize(20);
-    textAlign(CENTER, CENTER);
-    text(`Event Ends In: ${Math.floor(timeLeft)}seconds`, width / 2, height / 2 + 50);
-}
 
 
 ///// BUILDING DRAWING /////
@@ -302,53 +260,7 @@ function drawBuilding() {
     text(hotelName, 400, 190);
 }
 
-function buildMenu() {
-    let buttonHeight = 40;
-    for (let i = 0; i < roomChoices.length; i++) {
-        let yPosition = 280 + (i * (buttonHeight + 10));
-        fill('white');
-        rect(720, yPosition, 160, buttonHeight, 5);
-        fill('black');
-        text(roomChoices[i], 800, yPosition + buttonHeight / 2);
-    }
 
-}
-
-function keyPressed(){
-    if (showRoomSelect) {
-        if (keyCode === ESCAPE) {
-            showRoomSelect = false;
-            inputNumber = "";  
-        } else if (keyCode === ENTER && inputNumber) {
-
-            const typeIndex = parseInt(inputNumber) - 1;
-            if (typeIndex >= 0 && typeIndex < roomChoices.length) {
-                const roomType = roomChoices[typeIndex].split('.')[1].trim();  
-                selectedRoom.changeRoomType(roomType);  
-            }
-            showRoomSelect = false;  
-            inputNumber = "";  
-        } else if (key >= '1' && key <= '6') {
-
-            inputNumber += key;
-        }
-    }
-}
-
-function drawRoomSelect(){
-    fill(0, 0, 0, 150); 
-    rect(150, 300, 500, 150, 10);  
-    fill(255);
-    textSize(20);
-    textAlign(CENTER, CENTER);
-    text(roomSelectText, width/2 -50, 330);
-
-    textSize(30);
-    text(inputNumber, width/2 -50, 370);
-
-    textSize(18);
-    text("Press 1-6 for room type or ESC to cancel", width/2 -50, 420)
-}
 
 
 
@@ -362,7 +274,7 @@ function drawButton(){
         pauseGame = true;
     }
     else{
-        buildColour = 'yellow';
+        buildColour = 'gold';
         mode = 'BUILD';
         buildButton = false;
         
