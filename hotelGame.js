@@ -62,6 +62,7 @@ class room {
     }
 
     draw() {
+        
         fill(this.colour);
         rect(this.x, this.y, this.roomWidth, this.roomHeight);
         fill(255);
@@ -69,9 +70,12 @@ class room {
         text(this.type, this.x + this.roomWidth / 2, this.y + this.roomHeight / 2);
     }
 
+    
+
     changeRoomType(newType) {
         this.type = newType;
     }
+
 
 
 }
@@ -85,7 +89,7 @@ let roomChoices = ['Empty', 'Single', 'Double', 'Family', 'Restaurant', 'Cauldro
 
 
 ///// CUSTOMERS /////
-let customer, reception, elevator;
+let customer, reception, elevator, customerImage;
 let customerColour = "blue";
 //let customerArrive = false;
 
@@ -94,7 +98,7 @@ let customerColour = "blue";
 
 function preload() {
     // assets needed 
-
+    customerImage = loadImage("./person.png");
 
 }
 
@@ -158,6 +162,7 @@ function draw() {
     //    console.log("Check if rooms available");
 
     //}    
+
 
     movement(customer);
 
@@ -295,5 +300,7 @@ function drawPauseButton(){
     textSize(20);
     text(symbol, width - buttonSize / 2 - 190, buttonSize / 2 + 10);
 }
+
+
 
 
