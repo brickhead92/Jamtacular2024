@@ -53,6 +53,10 @@ function keyPressed(){
                     gold -= roomCost;
 
                     selectedRoom.changeRoomType(roomType);
+                    if(roomType === 'Cauldron'){
+                        happy += 1;
+
+                    }
 
                 }else{
                     console.log('Not enough gold to get this room!')
@@ -65,6 +69,20 @@ function keyPressed(){
             inputNumber += key;
         }
     }
+}
+
+
+///// BUILDING DRAWING /////
+function drawBuilding() {
+    fill('orange');
+    rect(100, 730, 600, 50); // reception
+    fill('white');
+    text('RECEPTION', 400, 750);
+
+    rect(100, 200, 600, 530); // building
+    triangle(60, 220, 740, 220, 400, 25); // roof
+    fill('black');
+    text(hotelName, 400, 190);
 }
 
 
