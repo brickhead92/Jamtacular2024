@@ -1,12 +1,7 @@
 //speed button - //let speedButton = 40; let normalSpeed = true; let doubleSpeed = false;
 // automate people
-
-// bars - gold, rating, witch happiness? 
-// add cost of rooms to upgrade
 // earning gold from customers, rooms and resturant.
-
 //add images and sounds
-
 
 
 "use strict";
@@ -21,8 +16,10 @@ let roomWidth = 160;
 let roomHeight = 80;
 
 let gold = 100;
-let rating = 1; //star
-let happy = 'neutral'; //unsure how to rank this yet
+let rating = 1; 
+let happy = 1; //unsure how to rank this yet
+
+
 
 ///// Hotel passing of time /////
 let dayCounter = 1;
@@ -39,9 +36,10 @@ const dayEnd = 18 * 60;
 const eveningStart = 18 * 60; // 18:00 - 22:00 
 const eveningEnd = 22 * 60;  
 const nightStart = 22 * 60;  // 22:00 - 05:00 next day
-const nightEnd = 5 * 60;     
+const nightEnd = 5 * 60;    
+const checkIn =  9 * 60;
 
-const totalGameTime = 2 * 60; // x minutes in seconds for a full day
+const totalGameTime = 2 * 60; 
 
 
 ///// Event Stuff /////
@@ -50,16 +48,17 @@ let showHotel = true;
 let eventDuration = 10 * 500;  
 let eventStartTime = -1;  
 
-// Room Info
+///// ROOMS /////
 class room {
-    constructor(x, y, roomWidth, roomHeight, colour, type, upgradeCost = 20) {
+    constructor(x, y, roomWidth, roomHeight, colour, type, available) {
         this.x = x;
         this.y = y;
         this.roomWidth = roomWidth;
         this.roomHeight = roomHeight;
         this.colour = colour;
         this.type = type;
-        this.upgradeCost = upgradeCost;
+        this.available = available;
+        
     }
 
     draw() {
@@ -74,6 +73,7 @@ class room {
         this.type = newType;
     }
 
+
 }
 
 let rooms = [];
@@ -83,39 +83,34 @@ let roomSelectText = "Input room type number and hit enter to purchase:";
 let inputNumber = '';
 let roomChoices = ['Empty', 'Single', 'Double', 'Family', 'Restaurant', 'Cauldron'];
 
+
+///// CUSTOMERS /////
+let customer, reception, elevator;
+let customerColour = "blue";
+//let customerArrive = false;
+
+
+
+
 function preload() {
     // assets needed 
+
+
 }
 
 function setup() {
     createCanvas(width, height);
-    rooms.push(new room(160, 650, roomWidth, roomHeight, 'pink', 'single'));
-    rooms.push(new room(320, 650, roomWidth, roomHeight, 'pink', 'restaurant'));
-    rooms.push(new room(480, 650, roomWidth, roomHeight, 'pink', 'cauldron'));
-    rooms.push(new room(160, 570, roomWidth, roomHeight, 'pink', 'empty'));
-    rooms.push(new room(320, 570, roomWidth, roomHeight, 'pink', 'empty'));
-    rooms.push(new room(480, 570, roomWidth, roomHeight, 'pink', 'empty'));
     
-    rooms.push(new room(160, 490, roomWidth, roomHeight, 'pink', 'empty'));
-    rooms.push(new room(320, 490, roomWidth, roomHeight, 'pink', 'empty'));
-    rooms.push(new room(480, 490, roomWidth, roomHeight, 'pink', 'empty'));
-
-    rooms.push(new room(160, 410, roomWidth, roomHeight, 'pink', 'empty'));
-    rooms.push(new room(320, 410, roomWidth, roomHeight, 'pink', 'empty'));
-    rooms.push(new room(480, 410, roomWidth, roomHeight, 'pink', 'empty'));
-
-    rooms.push(new room(160, 330, roomWidth, roomHeight, 'pink', 'empty'));
-    rooms.push(new room(320, 330, roomWidth, roomHeight, 'pink', 'empty'));
-    rooms.push(new room(480, 330, roomWidth, roomHeight, 'pink', 'empty'));
-
-    rooms.push(new room(160, 250, roomWidth, roomHeight, 'pink', 'empty'));
-    rooms.push(new room(320, 250, roomWidth, roomHeight, 'pink', 'empty'));
-    rooms.push(new room(480, 250, roomWidth, roomHeight, 'pink', 'empty'));
-    
+    spriteSetup();
 }
 
 function draw() {
     background(backgroundColour);
+
+    //make reception sprite visible for testing
+    reception.visible = false;
+    elevator.visible = false;
+
 
     if (!pauseGame) {
         updateTime();
@@ -157,7 +152,17 @@ function draw() {
         let timeLeft = Math.max(0, eventDuration - (millis() - eventStartTime)) / 1000;
         displayCountdown(timeLeft);
     }
+
+    //if (currentTime === checkIn) {
+    //    customersArrive = !customerArrive;  
+    //    console.log("Check if rooms available");
+
+    //}    
+
+    movement(customer);
+
 }
+
 
 
 
@@ -243,24 +248,6 @@ function drawTimes() {
     text(status, x, y + 30); 
     text(dayCounterText, x, y + 60);
 }
-
-
-
-
-///// BUILDING DRAWING /////
-function drawBuilding() {
-    fill('orange');
-    rect(100, 730, 600, 50); // reception
-    fill('white');
-    text('RECEPTION', 400, 750);
-
-    rect(100, 200, 600, 530); // building
-    triangle(60, 220, 740, 220, 400, 25); // roof
-    fill('black');
-    text(hotelName, 400, 190);
-}
-
-
 
 
 
