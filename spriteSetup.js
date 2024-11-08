@@ -99,7 +99,8 @@ function movement(spriteName){
 
 function makeWalkingCustomer(x, y){
     let tempWalkingCustomer = createSprite(x, y, 10, 10);
-    tempWalkingCustomer.shapeColour = customerColour;
-    
+    //tempWalkingCustomer.shapeColour = customerColour;
+    tempWalkingCustomer.addImage(customerImage);
+    tempWalkingCustomer.scale = 1.7;
     return tempWalkingCustomer;
 }
