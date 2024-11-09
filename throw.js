@@ -10,6 +10,9 @@ class Throwables {
     let throwable = new this.group.Sprite();
     throwable.overlaps(this.group);
     throwable.overlaps(overlaps);
+    throwable.overlaps(reception);
+    throwable.overlaps(elevator);
+    
     throwable.diameter = 10;
     throwable.x = x;
     throwable.y = y;
