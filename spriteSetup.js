@@ -41,6 +41,9 @@ function spriteSetup(){
     elevator = createSprite(130, 750, 50, 60, 'static');  
     elevator.shapeColor = "blue";
 
+    customer.overlaps(reception);
+    customer.overlaps(elevator);
+    
 
 }
 
