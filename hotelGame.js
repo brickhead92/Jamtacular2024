@@ -104,6 +104,7 @@ function preload() {
 
 function setup() {
     createCanvas(width, height);
+    displayMode("normal");
     
     spriteSetup();
 }
