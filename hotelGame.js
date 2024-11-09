@@ -116,8 +116,8 @@ function draw() {
     background(backgroundColour);
 
     //make reception sprite visible for testing
-    reception.visible = false;
-    elevator.visible = false;
+    //reception.visible = false;
+    //elevator.visible = false;
 
 
     if (!pauseGame) {
