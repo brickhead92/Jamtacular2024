@@ -73,7 +73,7 @@ function movement(spriteName){
         }
     
 
-        if(sprite.collide(reception)){
+        if(sprite.collides(reception)){
             sprite.y = 0;
             console.log('Customer wants to book a room');
             
