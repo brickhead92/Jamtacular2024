@@ -94,7 +94,7 @@ let customerColour = "blue";
 //let customerArrive = false;
 
 
-
+let throwables, player;
 
 function preload() {
     // assets needed 
