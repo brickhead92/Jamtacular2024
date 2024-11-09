@@ -105,7 +105,10 @@ function preload() {
 function setup() {
     createCanvas(width, height);
     displayMode("normal");
-    
+    throwables = new Throwables()
+    throwables.setup()
+    player = new Player()
+    world.gravity.y = 10;
     spriteSetup();
 }
 
