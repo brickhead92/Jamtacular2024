@@ -109,6 +109,7 @@ function setup() {
     throwables = new Throwables();
     throwables.setup();
     player = new Player(customerImage);
+    player.addImage(image);
     world.gravity.y = 10;
     spriteSetup();
 }
