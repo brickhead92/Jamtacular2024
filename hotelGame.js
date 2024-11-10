@@ -171,10 +171,10 @@ function draw() {
 
     if (ratingEvent) {
         // let timeLeft = Math.max(0, checkIn - (millis() - eveningEnd)) / 1000;
-        let timeLeft = 1;
+        let timeLeft = eveningEnd - currentTime;
         displayCountdown(timeLeft);
         console.log(timeLeft)
-        if (timeLeft === 0) {
+        if (timeLeft <= 0) {
             endEvent();
             console.log("Event Ended")
         } else {
