@@ -19,8 +19,8 @@ class Throwables {
     throwable.direction = angle;
     throwable.rotation = angle;
     throwable.type = "egg";
-    throwable.speed = 12;
-    throwable.life = 150 - power;
+    throwable.speed = 13;
+    throwable.life = 140 - power;
   }
   hit() {
 
