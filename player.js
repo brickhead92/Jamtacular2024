@@ -10,8 +10,10 @@ class Player {
     this.throw_angle = 0;
     this.throw_power = 0;
     this.score = 0;
-    this.sprite = new Sprite(this.x, this.y);
-    this.sprite.addImage(image)
+    this.sprite = new Sprite(this.x, this.y, "static");
+    this.sprite.addImage(image);
+    this.sprite.overlaps(allSprites);
+    this.sprite.hide = true;
     //this.addImage(image);
   }
   update(throwable) {
