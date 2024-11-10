@@ -73,7 +73,7 @@ function movement(spriteName){
         }
     
 
-        if(sprite.collides(reception)){
+        if(sprite.collided(reception)){
             sprite.y = 0;
             console.log('Customer wants to book a room');
             
@@ -91,6 +91,7 @@ function movement(spriteName){
                     gold += 4;
                     up = false;
                     room.available = false;
+                    customer.remove();
                     return;
                 }
             }
@@ -101,10 +102,9 @@ function movement(spriteName){
 
 
 function makeWalkingCustomer(x, y){
-    let tempWalkingCustomer = createSprite(x, y, 10, 10, 'static');
-    //tempWalkingCustomer.shapeColour = customerColour;
+    let tempWalkingCustomer = createSprite(x, y, 10, 10);
     tempWalkingCustomer.addImage(customerImage);
     tempWalkingCustomer.scale = 1.7;
-    // tempWalkingCustomer.mass = -10
+    // tempWalkingCustomer.vel.y = -6;
     return tempWalkingCustomer;
 }
