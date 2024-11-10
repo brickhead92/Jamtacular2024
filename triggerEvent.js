@@ -1,6 +1,7 @@
 //// TRIGGER RATING EVENT /////
 function triggerEvent() {
-    pauseGame = true;  
+    pauseGame = true;
+    console.log("Trigger Event Pause");
     // showHotel = false;  
     eventStartTime = millis();  
     fill(0);
@@ -10,7 +11,8 @@ function triggerEvent() {
 }
 
 function endEvent() {
-    pauseGame = false;  
+    pauseGame = false;
+    console.log("Trigger Event Unpause");
     showHotel = true;  
     eventStartTime = -1; 
 }
