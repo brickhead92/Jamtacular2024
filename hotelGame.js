@@ -212,7 +212,7 @@ function mousePressed() {
     //if (ratingEvent == false && currentTime >= checkIn && currentTime < eveningEnd) {
     //    triggerEvent();
     //}
-    if (ratingEvent == true && currentTime >= checkIn && currentTime < eveningEnd) {
+    if (pauseGame == true && currentTime >= checkIn && currentTime < eveningEnd) {
         ratingEvent = true;
         pauseGame = false;
     }
