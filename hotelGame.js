@@ -43,7 +43,7 @@ const totalGameTime = 2 * 60;
 
 
 ///// Event Stuff /////
-let ratingEvent = true; 
+let ratingEvent = false; 
 let showHotel = true; 
 let eventDuration = 10 * 500;  
 let eventStartTime = -1;  
@@ -161,6 +161,15 @@ function draw() {
         displayCountdown(timeLeft);
     }
 
+    if (currentTime >= checkIn && currentTime < eveningEnd) {
+        //ratingEvent = false;  
+        triggerEvent();
+    }
+
+    if (ratingEvent) {
+        player.update(throwables)
+        throwables.update(player, building.group)
+    }
     //if (currentTime === checkIn) {
     //    customersArrive = !customerArrive;  
     //    console.log("Check if rooms available");
@@ -194,7 +203,8 @@ function mousePressed() {
     //if (ratingEvent && dayCounter === 1 && currentTime >= eveningStart && currentTime < eveningEnd) {
     if (currentTime >= checkIn && currentTime < eveningEnd) {
         //ratingEvent = false;  
-        triggerEvent();
+    //    triggerEvent();
+        ratingEvent = true;
     }
 
     if (mouseX > 560 && mouseX < 560 + 80 && mouseY > 10 && mouseY < 10 + 40) {
