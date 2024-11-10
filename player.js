@@ -10,6 +10,7 @@ class Player {
     this.throw_angle = 0;
     this.throw_power = 0;
     this.score = 0;
+    this.image = customerImage
   }
   update(throwable) {
     if (kb.presses(' ')) {
