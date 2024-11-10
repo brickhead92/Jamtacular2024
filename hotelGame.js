@@ -161,7 +161,7 @@ function draw() {
     //    displayCountdown(timeLeft);
     //}
 
-    if (currentTime >= checkIn && currentTime < eveningEnd) {
+    if (currentTime >= eveningStart && currentTime < eveningEnd) {
         //ratingEvent = false;  
         if (ratingEvent === false) {
             triggerEvent();
@@ -216,7 +216,7 @@ function mousePressed() {
     //if (ratingEvent == false && currentTime >= checkIn && currentTime < eveningEnd) {
     //    triggerEvent();
     //}
-    if (pauseGame == true && currentTime >= checkIn && currentTime < eveningEnd) {
+    if (pauseGame == true && currentTime >= eveningStart && currentTime < eveningEnd) {
         console.log("Event Mouse Clicked");
         ratingEvent = true;
         pauseGame = false;
