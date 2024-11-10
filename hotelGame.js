@@ -191,8 +191,9 @@ function mousePressed() {
     }
     
     // Trigger rating event
-    if (ratingEvent && dayCounter === 1 && currentTime >= eveningStart && currentTime < eveningEnd) {
-        ratingEvent = false;  
+    //if (ratingEvent && dayCounter === 1 && currentTime >= eveningStart && currentTime < eveningEnd) {
+    if (currentTime >= checkIn && currentTime < eveningEnd) {
+        //ratingEvent = false;  
         triggerEvent();
     }
 
