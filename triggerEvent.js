@@ -16,6 +16,7 @@ function endEvent() {
 }
 
 function displayCountdown(timeLeft) {
+    pauseGame = false;
     fill(0);
     textSize(20);
     textAlign(CENTER, CENTER);
