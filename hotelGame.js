@@ -169,7 +169,7 @@ function draw() {
     }
 
     if (ratingEvent) {
-        let timeLeft = (eveningEnd - currentTime) / 1000;
+        let timeLeft = Math.max(0, checkIn - (millis() - eveningEnd)) / 1000;
         displayCountdown(timeLeft);
         if (timeLeft === 0) {
             endEvent();
