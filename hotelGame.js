@@ -151,15 +151,15 @@ function draw() {
     }
 
     // event timing
-    if (eventStartTime !== -1 && millis() - eventStartTime > eventDuration) {
+    //if (eventStartTime !== -1 && millis() - eventStartTime > eventDuration) {
 
-        endEvent();
-    }
+    //    endEvent();
+    //}
 
-    if (eventStartTime !== -1) {
-        let timeLeft = Math.max(0, eventDuration - (millis() - eventStartTime)) / 1000;
-        displayCountdown(timeLeft);
-    }
+    //if (eventStartTime !== -1) {
+    //    let timeLeft = Math.max(0, eventDuration - (millis() - eventStartTime)) / 1000;
+    //    displayCountdown(timeLeft);
+    //}
 
     if (currentTime >= checkIn && currentTime < eveningEnd) {
         //ratingEvent = false;  
@@ -169,8 +169,14 @@ function draw() {
     }
 
     if (ratingEvent) {
-        player.update(throwables)
-        throwables.update(player, allSprites)
+        let timeLeft = (eveningEnd - currentTime) / 1000;
+        displayCountdown(timeLeft);
+        if (timeLeft === 0) {
+            endEvent();
+        } else {
+            player.update(throwables)
+            throwables.update(player, allSprites)
+        }
     }
     //if (currentTime === checkIn) {
     //    customersArrive = !customerArrive;  
