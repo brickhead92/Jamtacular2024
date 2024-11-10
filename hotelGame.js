@@ -163,7 +163,9 @@ function draw() {
 
     if (currentTime >= checkIn && currentTime < eveningEnd) {
         //ratingEvent = false;  
-        triggerEvent();
+        if (ratingEvent === false) {
+            triggerEvent();
+        }
     }
 
     if (ratingEvent) {
