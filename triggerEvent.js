@@ -16,7 +16,8 @@ function endEvent() {
 }
 
 function displayCountdown(timeLeft) {
+    fill(0);
     textSize(20);
     textAlign(CENTER, CENTER);
-    text(`Event Ends In: ${Math.floor(timeLeft)}seconds`, width / 2, height / 2 + 50);
+    text(`Event Ends In: ${Math.floor(timeLeft)}seconds`, width / 2, height - 50);
 }
