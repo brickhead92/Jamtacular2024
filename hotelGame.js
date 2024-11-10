@@ -168,7 +168,7 @@ function draw() {
 
     if (ratingEvent) {
         player.update(throwables)
-        throwables.update(player, building.group)
+        throwables.update(player, allSprites)
     }
     //if (currentTime === checkIn) {
     //    customersArrive = !customerArrive;  
