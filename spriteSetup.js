@@ -105,6 +105,6 @@ function makeWalkingCustomer(x, y){
     let tempWalkingCustomer = createSprite(x, y, 10, 10);
     tempWalkingCustomer.addImage(customerImage);
     tempWalkingCustomer.scale = 1.7;
-    // tempWalkingCustomer.vel.y = -6;
+    tempWalkingCustomer.vel.y = -6;
     return tempWalkingCustomer;
 }
