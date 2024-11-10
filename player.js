@@ -10,10 +10,10 @@ class Player {
     this.throw_angle = 0;
     this.throw_power = 0;
     this.score = 0;
-    this.sprite = new Sprite(this.x, this.y, "static");
-    this.sprite.addImage(image);
-    this.sprite.overlaps(allSprites);
-    this.sprite.hide = true;
+    //this.sprite = new Sprite(this.x, this.y, "static");
+    //this.sprite.addImage(image);
+    //this.sprite.overlaps(allSprites);
+    //this.sprite.hide = true;
     //this.addImage(image);
   }
   update(throwable) {
@@ -38,19 +38,19 @@ class Player {
     }
     if (kb.pressing('up') && this.y >= canvas.height * 0.75) {
       this.y -= 1;
-      this.sprite.y -= 1;
+      //this.sprite.y -= 1;
     }
     if (kb.pressing('down') && this.y <= canvas.height) {
       this.y += 1;
-      this.sprite.y += 1;
+      //this.sprite.y += 1;
     }
     if (kb.pressing('left') && this.x >= 10) {
       this.x -= 1;
-      this.sprite.x -= 1;
+      //this.sprite.x -= 1;
     }
     if (kb.pressing('right') && this.x <= canvas.width - 10) {
       this.x += 1;
-      this.sprite.x += 1;
+      //this.sprite.x += 1;
     }
     push();
     translate(this.x, this.y);
