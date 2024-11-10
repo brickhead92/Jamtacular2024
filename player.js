@@ -1,6 +1,6 @@
 
 class Player {
-  constructor() {
+  constructor(image) {
     this.aimed = false;
     this.rotation = 0;
     this.aim_speed = 0.5;
@@ -10,7 +10,7 @@ class Player {
     this.throw_angle = 0;
     this.throw_power = 0;
     this.score = 0;
-    this.image = customerImage
+    this.image = image
   }
   update(throwable) {
     if (kb.presses(' ')) {
