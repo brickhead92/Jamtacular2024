@@ -1,7 +1,7 @@
 //// TRIGGER RATING EVENT /////
 function triggerEvent() {
     pauseGame = true;  
-    showHotel = false;  
+    // showHotel = false;  
     eventStartTime = millis();  
     fill(255);
     textSize(30);
