@@ -168,7 +168,7 @@ function draw() {
         // let timeLeft = Math.max(0, checkIn - (millis() - eveningEnd)) / 1000;
         let timeLeft = eveningEnd - currentTime;
         displayCountdown(timeLeft);
-        console.log(timeLeft)
+        console.log(timeLeft, currentTime)
         if (timeLeft <= 0) {
             //endEvent();
             console.log("Event Ended!")
