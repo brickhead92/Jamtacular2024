@@ -105,6 +105,6 @@ function makeWalkingCustomer(x, y){
     //tempWalkingCustomer.shapeColour = customerColour;
     tempWalkingCustomer.addImage(customerImage);
     tempWalkingCustomer.scale = 1.7;
-    tempWalkingCustomer.mass = -10
+    // tempWalkingCustomer.mass = -10
     return tempWalkingCustomer;
 }
