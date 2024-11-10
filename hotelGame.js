@@ -177,7 +177,7 @@ function draw() {
         console.log(timeLeft)
         if (timeLeft <= 0) {
             //endEvent();
-            console.log("Event Ended")
+            console.log("Event Ended!")
         } else {
             player.update(throwables)
             throwables.update(player, allSprites)
