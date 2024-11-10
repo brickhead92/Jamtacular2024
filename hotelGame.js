@@ -176,7 +176,7 @@ function draw() {
         displayCountdown(timeLeft);
         console.log(timeLeft)
         if (timeLeft <= 0) {
-            endEvent();
+            //endEvent();
             console.log("Event Ended")
         } else {
             player.update(throwables)
