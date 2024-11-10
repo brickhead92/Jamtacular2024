@@ -213,6 +213,7 @@ function mousePressed() {
         //ratingEvent = false;  
     //    triggerEvent();
         ratingEvent = true;
+        pauseGame = false;
     }
 
     if (mouseX > 560 && mouseX < 560 + 80 && mouseY > 10 && mouseY < 10 + 40) {
