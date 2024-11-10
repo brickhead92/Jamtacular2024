@@ -162,13 +162,7 @@ function draw() {
     //    displayCountdown(timeLeft);
     //}
 
-    if (currentTime >= eveningStart && currentTime < eveningEnd) {
-        //ratingEvent = false;  
-        if (eventTriggered === false) {
-            triggerEvent();
-            console.log("Event Triggered");
-        }
-    }
+
 
     if (ratingEvent === true) {
         // let timeLeft = Math.max(0, checkIn - (millis() - eveningEnd)) / 1000;
@@ -182,6 +176,14 @@ function draw() {
             player.update(throwables)
             throwables.update(player, allSprites)
         }
+    }
+    
+    if (eventTriggered === false && currentTime >= eveningStart && currentTime < eveningEnd) {
+        //ratingEvent = false;  
+        //if (eventTriggered === false) {
+            triggerEvent();
+            console.log("Event Triggered");
+        //}
     }
     //if (currentTime === checkIn) {
     //    customersArrive = !customerArrive;  
