@@ -43,7 +43,8 @@ const totalGameTime = 2 * 60;
 
 
 ///// Event Stuff /////
-let ratingEvent = false; 
+let ratingEvent = false;
+let eventTriggered = false;
 let showHotel = true; 
 let eventDuration = 10 * 500;  
 let eventStartTime = -1;  
@@ -163,7 +164,7 @@ function draw() {
 
     if (currentTime >= eveningStart && currentTime < eveningEnd) {
         //ratingEvent = false;  
-        if (ratingEvent === false) {
+        if (eventTriggered === false) {
             triggerEvent();
             console.log("Event Triggered");
         }
