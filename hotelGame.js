@@ -161,12 +161,12 @@ function draw() {
     //    displayCountdown(timeLeft);
     //}
 
-    if (currentTime >= checkIn && currentTime < eveningEnd) {
+    //if (currentTime >= checkIn && currentTime < eveningEnd) {
         //ratingEvent = false;  
-        if (ratingEvent === false) {
-            triggerEvent();
-        }
-    }
+    //    if (ratingEvent === false) {
+    //        triggerEvent();
+    //    }
+    //}
 
     if (ratingEvent) {
         let timeLeft = Math.max(0, checkIn - (millis() - eveningEnd)) / 1000;
@@ -211,7 +211,7 @@ function mousePressed() {
     //if (ratingEvent && dayCounter === 1 && currentTime >= eveningStart && currentTime < eveningEnd) {
     if (ratingEvent == false && currentTime >= checkIn && currentTime < eveningEnd) {
         //ratingEvent = false;  
-    //    triggerEvent();
+        triggerEvent();
         ratingEvent = true;
         pauseGame = false;
     }
