@@ -59,7 +59,7 @@ class Player {
           break;
         }
       }
-      throwable.throw(this.x, this.y, this.throw_angle, this.throw_power, building.group);
+      throwable.throw(this.x, this.y, this.throw_angle, this.throw_power, allSprites);
       this.aimed = false;
     }
   }
