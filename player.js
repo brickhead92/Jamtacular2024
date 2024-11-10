@@ -10,7 +10,7 @@ class Player {
     this.throw_angle = 0;
     this.throw_power = 0;
     this.score = 0;
-    this.sprite = new Sprite(this.x, this,y);
+    this.sprite = new Sprite(this.x, this.y);
     this.sprite.addImage(image)
     //this.addImage(image);
   }
