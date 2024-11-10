@@ -15,7 +15,7 @@ function upgradeCost(type){
         'Double' : 30,
         'Family' : 40,
         'Restaurant' : 40,
-        'Cauldron' : 30,
+        'Cauldron' : 50,
     };
 
     return costs [type];
