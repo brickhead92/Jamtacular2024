@@ -209,7 +209,7 @@ function mousePressed() {
     
     // Trigger rating event
     //if (ratingEvent && dayCounter === 1 && currentTime >= eveningStart && currentTime < eveningEnd) {
-    if (currentTime >= checkIn && currentTime < eveningEnd) {
+    if (ratingEvent == false && currentTime >= checkIn && currentTime < eveningEnd) {
         //ratingEvent = false;  
     //    triggerEvent();
         ratingEvent = true;
