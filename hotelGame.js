@@ -165,14 +165,17 @@ function draw() {
         //ratingEvent = false;  
         if (ratingEvent === false) {
             triggerEvent();
+            console.log("Event Triggered");
         }
     }
 
     if (ratingEvent) {
         let timeLeft = Math.max(0, checkIn - (millis() - eveningEnd)) / 1000;
         displayCountdown(timeLeft);
+        console.log(timeLeft)
         if (timeLeft === 0) {
             endEvent();
+            console.log("Event Ended")
         } else {
             player.update(throwables)
             throwables.update(player, allSprites)
@@ -213,6 +216,7 @@ function mousePressed() {
     //    triggerEvent();
     //}
     if (pauseGame == true && currentTime >= checkIn && currentTime < eveningEnd) {
+        console.log("Event Mouse Clicked");
         ratingEvent = true;
         pauseGame = false;
     }
