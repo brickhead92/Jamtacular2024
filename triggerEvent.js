@@ -3,7 +3,7 @@ function triggerEvent() {
     pauseGame = true;  
     // showHotel = false;  
     eventStartTime = millis();  
-    fill(255);
+    fill(0);
     textSize(30);
     textAlign(CENTER, CENTER);
     text('RATING GAME TRIGGERED CLICK TO START', width / 2, height / 2);
